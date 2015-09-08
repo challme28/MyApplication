@@ -6,17 +6,24 @@
     tools:context="dis.teph.myapplication.NavigationDrawerFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/linear_lay"
+    <ImageView
+        android:id="@+id/imageBack"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="#D6ECFA">
-    </LinearLayout>
+        android:background="#D6ECFA"
+        android:orientation="horizontal"/>
+
     <ImageView
         android:id="@+id/image_dash"
-        android:layout_marginTop="18dp"
         android:layout_width="fill_parent"
         android:layout_height="140dp"
-        android:src="@drawable/dash_wall"/>
+        android:layout_marginTop="18dp"
+        android:src="@drawable/dash_wall" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/drawerList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
 </RelativeLayout>
