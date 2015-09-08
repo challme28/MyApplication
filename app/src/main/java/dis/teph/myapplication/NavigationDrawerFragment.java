@@ -8,11 +8,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -25,7 +29,7 @@ public class NavigationDrawerFragment extends Fragment {
     public static final String KEY_USER_LEARNED_DRAWER = "user_learned_drawer";
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
-
+    private RvAdapter adapter;
     private boolean mUserLearnedDrawer;
     private boolean mFromSavedInstanceState;
     private View containerView;
@@ -50,9 +54,26 @@ public class NavigationDrawerFragment extends Fragment {
         // Inflate the layout for this fragment
         View layout=inflater.inflate(R.layout.fragment_navigation_drawer,container,false);
         recyclerView=(RecyclerView)layout.findViewById(R.id.drawerList);
+        adapter=new RvAdapter(getActivity(),getData());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return layout;
     }
 
+    public  static List<RvInformation> getData(){
+        List<RvInformation> data= new ArrayList<>();
+        int[] icons={R.drawable.flash_rarity_2,R.drawable.guitar_octavia_2,R.drawable.itunes_vynil_2,R.drawable.vlc_carrot_2,R.drawable.preview_pony_2,
+                R.drawable.flash_rarity_2,R.drawable.guitar_octavia_2,R.drawable.itunes_vynil_2,R.drawable.vlc_carrot_2,R.drawable.preview_pony_2,
+                R.drawable.flash_rarity_2,R.drawable.guitar_octavia_2,R.drawable.itunes_vynil_2,R.drawable.vlc_carrot_2,R.drawable.preview_pony_2};
+        String[] titles={"Rarity","Octavia","Vynil","Carrote","Pony","Vynil","Carrote","Pony","Vynil","Carrote","Pony","Vynil"};
+        for(int i=0; i<titles.length && i<icons.length;i++){
+            RvInformation rvInformation=new RvInformation();
+            rvInformation.iconID=icons[i];
+            rvInformation.title=titles[i];
+            data.add(rvInformation);
+        }
+        return data;
+    }
 
     public void setUp(int fragmentid, DrawerLayout drawerLayout, final Toolbar toolbar) {
         containerView=getActivity().findViewById(fragmentid);
