@@ -15,6 +15,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.lucasr.dspec.DesignSpec;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,9 +64,9 @@ public class NavigationDrawerFragment extends Fragment {
 
     public  static List<RvInformation> getData(){
         List<RvInformation> data= new ArrayList<>();
-        int[] icons={R.drawable.flash_rarity_2,R.drawable.guitar_octavia_2,R.drawable.itunes_vynil_2,R.drawable.vlc_carrot_2,R.drawable.preview_pony_2,
-                R.drawable.flash_rarity_2,R.drawable.guitar_octavia_2,R.drawable.itunes_vynil_2,R.drawable.vlc_carrot_2,R.drawable.preview_pony_2,
-                R.drawable.flash_rarity_2,R.drawable.guitar_octavia_2,R.drawable.itunes_vynil_2,R.drawable.vlc_carrot_2,R.drawable.preview_pony_2};
+        int[] icons={R.drawable.amethyst_icon,R.drawable.garnet_icon,R.drawable.pearl_icon,R.drawable.steven_icon,R.drawable.steven_icon,
+                R.drawable.amethyst_icon,R.drawable.garnet_icon,R.drawable.pearl_icon,R.drawable.steven_icon,R.drawable.steven_icon,
+                R.drawable.amethyst_icon,R.drawable.garnet_icon,R.drawable.pearl_icon,R.drawable.steven_icon,R.drawable.steven_icon};
         String[] titles={"Rarity","Octavia","Vynil","Carrote","Pony","Vynil","Carrote","Pony","Vynil","Carrote","Pony","Vynil"};
         for(int i=0; i<titles.length && i<icons.length;i++){
             RvInformation rvInformation=new RvInformation();
@@ -113,6 +115,8 @@ public class NavigationDrawerFragment extends Fragment {
         if(!mUserLearnedDrawer && !mFromSavedInstanceState){
             mDrawerLayout.openDrawer(containerView);
         }
+        DesignSpec designSpec = DesignSpec.fromResource(containerView, R.raw.spec);
+        containerView.getOverlay().add(designSpec);
 
     }
 
