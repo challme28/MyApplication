@@ -115,8 +115,8 @@ public class NavigationDrawerFragment extends Fragment {
         if(!mUserLearnedDrawer && !mFromSavedInstanceState){
             mDrawerLayout.openDrawer(containerView);
         }
-        DesignSpec designSpec = DesignSpec.fromResource(containerView, R.raw.spec);
-        containerView.getOverlay().add(designSpec);
+        /*DesignSpec designSpec = DesignSpec.fromResource(containerView, R.raw.spec);
+        containerView.getOverlay().add(designSpec);*/
 
     }
 

@@ -1,36 +1,32 @@
-<org.lucasr.dspec.DesignSpecFrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/accentColor"
+    tools:context="dis.teph.myapplication.NavigationDrawerFragment">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imageBack"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/accentColor"
-        tools:context="dis.teph.myapplication.NavigationDrawerFragment">
+        android:layout_height="136dp"
+        android:layout_marginBottom="8dp"
+        android:background="#D6ECFA"
+        android:orientation="horizontal" />
 
-        <!-- TODO: Update blank fragment layout -->
-        <ImageView
-            android:id="@+id/imageBack"
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:background="#D6ECFA"
-            android:orientation="horizontal" />
+    <ImageView
+        android:id="@+id/image_dash"
+        android:layout_width="fill_parent"
+        android:layout_height="136dp"
+        android:layout_marginTop="17.5dp"
+        android:src="@drawable/dash_wall" />
 
-        <ImageView
-            android:id="@+id/image_dash"
-            android:layout_width="fill_parent"
-            android:layout_height="140dp"
-            android:layout_marginTop="18dp"
-            android:src="@drawable/dash_wall" />
+    <android.support.v7.widget.RecyclerView
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/drawerList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imageBack">
+        android:id="@+id/drawerList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageBack">
 
-        </android.support.v7.widget.RecyclerView>
-    </RelativeLayout>
-</org.lucasr.dspec.DesignSpecFrameLayout>
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>
