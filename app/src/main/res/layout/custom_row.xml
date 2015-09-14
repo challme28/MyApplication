@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="48dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:orientation="horizontal">
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="horizontal"
+    android:onClick="true"
+    android:background="@drawable/item_button_layout">
 
     <ImageView
         android:id="@+id/listIcon"
@@ -21,7 +23,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="16dp"
         android:text="Dummy Text"
-        android:textColor="#FFFFFF" />
+        android:textColor="@color/primary_text" />
 
 
 </LinearLayout>
