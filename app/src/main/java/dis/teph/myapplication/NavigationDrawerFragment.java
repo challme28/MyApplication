@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -27,14 +28,15 @@ import java.util.List;
  */
 public class NavigationDrawerFragment extends Fragment implements RvAdapter.ClickListener {
 
+    public static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
+
     private RecyclerView recyclerView;
-    public static final String PREF_FILE_NAME = "testpref";
-    public static final String KEY_USER_LEARNED_DRAWER = "user_learned_drawer";
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
     private RvAdapter adapter;
     private boolean mUserLearnedDrawer;
     private boolean mFromSavedInstanceState;
+    private SharedPreferences mSharedPreferences;
     private View containerView;
 
     public NavigationDrawerFragment() {
@@ -44,7 +46,8 @@ public class NavigationDrawerFragment extends Fragment implements RvAdapter.Clic
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mUserLearnedDrawer = Boolean.valueOf(readFromPreferences(getActivity(), KEY_USER_LEARNED_DRAWER, "false"));
+        mSharedPreferences= PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mUserLearnedDrawer = mSharedPreferences.getBoolean(PREF_USER_LEARNED_DRAWER, false);
         if (savedInstanceState != null) {
             mFromSavedInstanceState = true;
         }
@@ -56,9 +59,10 @@ public class NavigationDrawerFragment extends Fragment implements RvAdapter.Clic
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View layout=inflater.inflate(R.layout.fragment_navigation_drawer,container,false);
-        recyclerView=(RecyclerView)layout.findViewById(R.id.drawerList);
+
         adapter=new RvAdapter(getActivity(),getData());
         adapter.setClickListener(this);
+        recyclerView=(RecyclerView)layout.findViewById(R.id.drawerList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return layout;
@@ -88,7 +92,7 @@ public class NavigationDrawerFragment extends Fragment implements RvAdapter.Clic
                 super.onDrawerOpened(drawerView);
                 if (!mUserLearnedDrawer) {
                     mUserLearnedDrawer = true;
-                    saveToPreferences(getActivity(), KEY_USER_LEARNED_DRAWER, mUserLearnedDrawer + "");
+                    mSharedPreferences.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
                     getActivity().invalidateOptionsMenu();
                 }
 
@@ -120,18 +124,6 @@ public class NavigationDrawerFragment extends Fragment implements RvAdapter.Clic
         /*DesignSpec designSpec = DesignSpec.fromResource(containerView, R.raw.spec);
         containerView.getOverlay().add(designSpec);*/
 
-    }
-
-    public static void saveToPreferences(Context context, String preferenceName, String preferenceValue) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(preferenceName, preferenceValue);
-        editor.commit();
-    }
-
-    public static String readFromPreferences(Context context, String preferenceName, String defaultValue) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString(preferenceName, defaultValue);
     }
 
     @Override
