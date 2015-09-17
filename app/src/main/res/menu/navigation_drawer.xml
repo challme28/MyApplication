@@ -1,9 +1,30 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="dis.teph.myapplication.NavigationDrawerFragment">
-    <item android:id="@+id/action_example" android:title="@string/action_example"
-        app:showAsAction="withText|ifRoom" />
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawer_amethyst"
+            android:checked="true"
+            android:icon="@drawable/ic_drawer"
+            android:title="@string/amethyst"/>
+
+        <item
+            android:id="@+id/drawer_garnet"
+            android:icon="@drawable/ic_action"
+            android:title="@string/garnet"/>
+
+        <item
+            android:id="@+id/drawer_pearl"
+            android:icon="@drawable/pearl_icon"
+            android:title="@string/pearl"/>
+
+        <item
+            android:id="@+id/drawer_steven"
+            android:icon="@drawable/steven_icon"
+            android:title="@string/steven"/>
+
+    </group>
 </menu>

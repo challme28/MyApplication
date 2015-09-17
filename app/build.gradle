@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "dis.teph.myapplication"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -25,6 +25,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.0.0'
     compile 'com.android.support:recyclerview-v7:23.0.+'
     compile 'org.lucasr.dspec:dspec:0.1.1'
+    compile 'com.android.support:design:22.2.0'
 
 
 }

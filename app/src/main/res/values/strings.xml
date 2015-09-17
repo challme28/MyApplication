@@ -19,4 +19,8 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="amethyst">amethyst</string>
+    <string name="garnet">garnet</string>
+    <string name="pearl">pearl</string>
+    <string name="steven">steven</string>
 </resources>
