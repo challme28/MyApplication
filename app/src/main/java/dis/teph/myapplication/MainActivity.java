@@ -27,10 +27,12 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         final ActionBar actionBar = getSupportActionBar();
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         if (actionBar != null) {
             //actionBar.setHomeAsUpIndicator(R.drawable.ic_drawer);
-            actionBar.setDisplayHomeAsUpEnabled(true);
+            //actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
         }
 
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
