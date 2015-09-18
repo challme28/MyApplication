@@ -15,10 +15,6 @@
             android:id="@+id/app_bar"
             layout="@layout/app_bar" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
     </FrameLayout>
 
     <android.support.design.widget.NavigationView
@@ -28,5 +24,12 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/drawer_header"
         app:menu="@menu/navigation_drawer"
-        />
+        >
+        <ImageView
+            android:id="@+id/image_dash"
+            android:layout_width="fill_parent"
+            android:layout_height="136dp"
+            android:layout_marginTop="27.5dp"
+            android:src="@drawable/dash_wall" />
+    </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>
